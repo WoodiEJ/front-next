@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { GripVerticalIcon } from "lucide-react";
 import { Checkbox } from "./ui/checkbox";
 import { Badge } from "./ui/badge";
+import dayjs from "dayjs";
 
 interface Store {
     id: number
@@ -99,7 +100,7 @@ export const columnsStores: ColumnDef<Store>[] = [
         cell: ({ row }) => (
             <div className="w-32">
                 <Badge variant="outline" className="px-1.5 text-muted-foreground">
-                    {row.original.created_at.toLocaleDateString("pt-BR")}
+                    {dayjs(row.original.created_at).format("DD/MM/YYYY")}
                 </Badge>
             </div>
         ),
@@ -109,7 +110,7 @@ export const columnsStores: ColumnDef<Store>[] = [
         cell: ({ row }) => (
             <div className="w-32">
                 <Badge variant="outline" className="px-1.5 text-muted-foreground">
-                    {row.original.updated_at.toLocaleDateString("pt-BR")}
+                    {dayjs(row.original.updated_at).format("DD/MM/YYYY")}
                 </Badge>
             </div>
         ),

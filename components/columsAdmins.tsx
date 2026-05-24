@@ -6,8 +6,9 @@ import { Checkbox } from "./ui/checkbox";
 import { Badge } from "./ui/badge";
 import { useRouter } from "next/navigation";
 import { DeleteDialog } from "./deleteComponent";
-import { deleteProduct } from "@/actions/products";
+import { deleteProduct } from "@/app/(logados)/store/products/products";
 import { deleteUser } from "@/actions/admins";
+import dayjs from "dayjs";
 
 interface User {
     id: number
@@ -83,7 +84,7 @@ export const columnsAdmins: ColumnDef<User>[] = [
         cell: ({ row }) => (
             <div className="w-32">
                 <Badge variant="outline" className="px-1.5 text-muted-foreground">
-                    {row.original.created_at.toLocaleDateString("pt-BR")}
+                    {dayjs(row.original.created_at).format("DD/MM/YYYY")}
                 </Badge>
             </div>
         ),
@@ -93,7 +94,7 @@ export const columnsAdmins: ColumnDef<User>[] = [
         cell: ({ row }) => (
             <div className="w-32">
                 <Badge variant="outline" className="px-1.5 text-muted-foreground">
-                    {row.original.updated_at.toLocaleDateString("pt-BR")}
+                    {dayjs(row.original.updated_at).format('DD/MM/YYYY')}
                 </Badge>
             </div>
         ),

@@ -6,6 +6,7 @@ import { Checkbox } from "./ui/checkbox";
 import { Badge } from "./ui/badge";
 import { requestsData } from "@/db/requests";
 import { useRouter } from "next/navigation";
+import dayjs from "dayjs";
 
 interface Request {
     id: number
@@ -141,7 +142,7 @@ export const columnsRequest: ColumnDef<Request>[] = [
         cell: ({ row }) => (
             <div className="w-32">
                 <Badge variant="outline" className="px-1.5 text-muted-foreground">
-                    {row.original.created_at.toLocaleDateString("pt-BR")}
+                    {dayjs(row.original.created_at).format("DD/MM/YYYY")}
                 </Badge>
             </div>
         ),
@@ -151,7 +152,7 @@ export const columnsRequest: ColumnDef<Request>[] = [
         cell: ({ row }) => (
             <div className="w-32">
                 <Badge variant="outline" className="px-1.5 text-muted-foreground">
-                    {row.original.updated_at.toLocaleDateString("pt-BR")}
+                    {dayjs(row.original.updated_at).format("DD/MM/YYYY")}
                 </Badge>
             </div>
         ),

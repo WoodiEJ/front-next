@@ -7,7 +7,7 @@ import { Badge } from "./ui/badge";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { DeleteDialog } from "./deleteComponent";
-import { deleteProduct } from "@/actions/products";
+import { deleteProduct } from "@/app/(logados)/store/products/products";
 
 interface Product {
     id: number
