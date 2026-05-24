@@ -67,8 +67,8 @@ export default function ResetPassword({
                                     <Field>
                                         <FieldLabel htmlFor="password">Nova senha</FieldLabel>
                                         <Input
-                                            id="email"
-                                            type="email"
+                                            id="password"
+                                            type="password"
                                             {...register("senhaNova")}
                                             placeholder="******"
                                             required
@@ -77,10 +77,10 @@ export default function ResetPassword({
                                     </Field>
 
                                     <Field>
-                                        <FieldLabel htmlFor="password">Senha Atual</FieldLabel>
+                                        <FieldLabel htmlFor="password">Confirmar nova senha</FieldLabel>
                                         <Input
-                                            id="email"
-                                            type="email"
+                                            id="password"
+                                            type="password"
                                             {...register("senhaNova2")}
                                             placeholder="******"
                                             required

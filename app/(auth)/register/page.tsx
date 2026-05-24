@@ -15,6 +15,7 @@ import { toast } from "sonner";
 
 const schema = z.object({
     name: z.string(),
+    email: z.string().email(),
     cnpj: z.string().min(14, "O cnpj possui 14 caracteres"),
     category: z.string(),
     country: z.string(),
@@ -87,6 +88,11 @@ export default function Registro({
                                     </Field>
 
                                     <Field>
+                                        <FieldLabel>Digite o seu email</FieldLabel>
+                                        <Input placeholder="Exemplo: loja@email.com" required {...register("email")} />
+                                    </Field>
+
+                                    <Field>
                                         <FieldLabel>Digite o cnpj da loja</FieldLabel>
                                         <Input placeholder="Exemplo: 00.394.460/0058-87" required {...register("cnpj")} />
                                     </Field>
@@ -121,6 +127,9 @@ export default function Registro({
                                     </Field>
                                     <Field>
                                         <Button type="submit">Solicitar Cadastro</Button>
+                                        <Button type="button" onClick={() => {
+                                            router.back()
+                                        }}>Voltar</Button>
                                     </Field>
                                 </FieldGroup>
                             </form>
