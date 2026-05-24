@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono, Instrument_Sans, Montserrat } from "next/font/google"
 
-import "./globals.css"
+import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
@@ -15,25 +15,15 @@ const fontMono = Geist_Mono({
     variable: "--font-mono",
 })
 
-export default function RootLayout({
+export default function AuthLayout({
     children,
 }: Readonly<{
     children: React.ReactNode
 }>) {
     return (
-        <html
-            lang="en"
-            suppressHydrationWarning
-            className={cn("antialiased", fontMono.variable, "font-sans", instrumentSans.variable, montserratHeading.variable)}
-        >
-            <body>
-                <Toaster richColors />
-                <ThemeProvider>
-                    <main>
-                        {children}
-                    </main>
-                </ThemeProvider>
-            </body>
-        </html>
+        <div className="flex flex-col min-h-svh">
+            <Header />
+            <main>{children}</main>
+        </div>
     )
 }
