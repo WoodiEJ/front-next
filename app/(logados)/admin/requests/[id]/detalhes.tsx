@@ -47,7 +47,10 @@ export function DetalheSolicitacaoClient({ request }: { request: Request }) {
                                 <p>A loja será <strong>aprovada</strong>, receberá uma notificação por e-mail e terá o acesso liberado.</p>
                                 <div className="flex gap-2">
                                     <Button variant="outline" onClick={() => setOpcao("")}>Cancelar</Button>
-                                    <Button variant="default" onClick={() => toast.success("Loja aprovada!")}>Confirmar</Button>
+                                    <Button variant="default" onClick={() => {
+                                        toast.success("Loja aprovada!")
+                                        router.push('/admin/requests')
+                                    }}>Confirmar</Button>
                                 </div>
                             </div>
                         )}
@@ -57,7 +60,10 @@ export function DetalheSolicitacaoClient({ request }: { request: Request }) {
                                 <p>A loja será <strong>reprovada</strong>, receberá uma notificação por e-mail e não terá o acesso liberado.</p>
                                 <div className="flex gap-2">
                                     <Button variant="outline" onClick={() => setOpcao("")}>Cancelar</Button>
-                                    <Button variant="destructive" onClick={() => toast.info("Loja reprovada.")}>Confirmar</Button>
+                                    <Button variant="destructive" onClick={() => {
+                                        toast.info("Loja reprovada.")
+                                        router.push('/admin/requests')
+                                    }}>Confirmar</Button>
                                 </div>
                             </div>
                         )}
